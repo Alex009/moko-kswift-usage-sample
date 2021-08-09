@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("dev.icerock.moko.kswift")
 }
 
 kotlin {
@@ -46,5 +47,19 @@ android {
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(31)
+    }
+}
+
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink>().matching {
+    it.binary is org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+}.configureEach {
+    doLast {
+        val swiftDirectory = File(destinationDir, "${binary.baseName}Swift")
+        val xcodeSwiftDirectory = File(buildDir, "generated/swift")
+        swiftDirectory.copyRecursively(xcodeSwiftDirectory, overwrite = true)
     }
 }
