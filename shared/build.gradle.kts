@@ -67,5 +67,7 @@ android {
 }
 
 kswift {
+    iosDeploymentTarget.set("14.1")
+
     install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
 }

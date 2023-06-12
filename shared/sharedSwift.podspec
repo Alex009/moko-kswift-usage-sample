@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Some description for a Kotlin/Native module'
     spec.module_name              = "MultiPlatformLibrarySwift"
     
-    spec.ios.deployment_target = '14.1'
+    spec.ios.deployment_target  = '14.1'
     spec.static_framework         = false
     spec.dependency 'shared'
     spec.source_files = "build/cocoapods/framework/MultiPlatformLibrarySwift/**/*.{h,m,swift}"
