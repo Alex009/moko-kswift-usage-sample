@@ -6,4 +6,5 @@ target 'iosApp' do
 
   # Pods for iosApp
   pod 'shared', :path => '../shared'
+  pod 'sharedSwift', :path => '../shared'
 end

@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.kotlin.native.cocoapods")
+    id("dev.icerock.moko.kswift")
 }
 
 version = "1.0"
@@ -63,4 +64,8 @@ android {
         minSdkVersion(21)
         targetSdkVersion(31)
     }
+}
+
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
 }
